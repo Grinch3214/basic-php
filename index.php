@@ -65,11 +65,11 @@
 		// } else {
 		// 	$result = 'Fasle';
 		// }
-		$resultForTrue = $checkTrueOrFalse ? 'True' : 'False';
+		$resultForTrue = $checkTrueOrFalse ? 'Так' : 'Ні';
 
 		// 3.2
 		$checkFalseOrTrue = false === 0;
-		$resultForFalse = $checkFalseOrTrue ? 'True' : 'False';
+		$resultForFalse = $checkFalseOrTrue ? 'Так' : 'Ні';
 
 		// 3.3
 		$firstStr = "three";
