@@ -46,6 +46,24 @@ body {
 	background: rgb(243, 243, 243);
 }
 
+pre {
+	background: #424040;
+	white-space: pre-line;
+	padding: 10px;
+	border-radius: 8px;
+	font-size: 14px;
+	color: #fff;
+	margin: 0 0 20px;
+}
+
+.comment {
+	color: rgba(255,255,255, .7);
+}
+
+.varible {
+	color: #ff5d5d;
+}
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -60,6 +78,7 @@ body {
 
 .list {
 	color: brown;
+	margin: 0 0 10px;
 }
 
 .list li span {
