@@ -71,7 +71,8 @@
 	// 3.3
 	$firstStr = "three";
 	$secondStr = "три";
-	$compare = strcmp($firstStr, $secondStr);
+	// $compare = strcmp($firstStr, $secondStr);
+	$compare = strcmp(mb_strlen($firstStr), mb_strlen($secondStr));
 	$compareResult = "";
 	switch($compare) {
 		case 0:
