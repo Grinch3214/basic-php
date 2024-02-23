@@ -74,6 +74,7 @@
 	// $compare = strcmp($firstStr, $secondStr);
 	$compare = strcmp(mb_strlen($firstStr), mb_strlen($secondStr));
 	$compareResult = "";
+	echo "result:  $compare";
 	switch($compare) {
 		case 0:
 			$compareResult = "Строки рівні";
