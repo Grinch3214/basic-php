@@ -74,6 +74,7 @@
 	// $compare = strcmp($firstStr, $secondStr);
 	$compare = strcmp(mb_strlen($firstStr), mb_strlen($secondStr));
 	$compareResult = "";
+	echo "result:  $compare";
 	switch($compare) {
 		case 0:
 			$compareResult = "Строки рівні";
@@ -104,3 +105,29 @@
 	
 	echo "$resNumber ";
 ?>
+
+
+<p>
+<?php
+	$firstStr = "three";
+	$secondStr = "три";
+
+	$compare = strcmp($firstStr, $secondStr);
+	$test = $firstStr > $secondStr;
+
+	var_dump($compare);
+	var_dump($test);
+
+	if($compare === -1) {
+		echo " compare 1 > 2";
+	};
+
+	if($test === false) {
+		echo " compare 1 > 2";
+	};
+
+	if(!$test) {
+		echo " compare 1 > 2";
+	};
+?>
+</p>
