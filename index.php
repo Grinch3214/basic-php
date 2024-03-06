@@ -1,104 +1,85 @@
 <?php
-	echo '<pre>';
-// TODO 1
-	$arr = [1, 2, 3, 7, 31, 4, 1, 8, 6];
-	// посчитать длину массива
+// 1. Создать функцию принимающую массив произвольной вложенности и определяющий любой элемент номер которого передан параметром во всех вложенных массивах.
 
-	var_dump(count($arr));
-	echo '<br>';
-	
-	// переместить первые 4 элемента массива в конец массива
-	array_push($arr, ...array_splice($arr, 0, 4));
-	var_dump($arr);
-	echo '<br>';
-	// получить сумму 4,5,6 элемента
-	
-	// массив изменен [31, 4, 1, 8, 6, 1, 2, 3, 7]
-	$newArr = array_splice($arr, 3,	3); // [8, 6, 1] = 15
-	var_dump(array_sum($newArr));
-	echo '<br>';
+echo '<pre>';
 
-// TODO 2
-	$firstArr = [
-		'one' => 1,
-		'two' => 2,
-		'three' => 3,
-		'foure' => 5,
-		'five' => 12,
-	];
+$arr = ['first', [true, 'second', ['third', 2, 3, 4, 5], 90, 80, 70], 15, 16, 17, 18];
 
-	$secondArr = [
-		'one' => 1,
-		'seven' => 22,
-		'three' => 32,
-		'foure' => 5,
-		'five' => 13,
-		'six' => 37,
-	];
+function searchElementOfArray($arr, $element) {
+	$result = [];
+	foreach($arr as $key => $value) {
+		if($key === $element) {
+			array_push($result, $value);
+		}
 
-	// найти все элементы которые отсутствуют в первом массиве и присутствуют во втором
-	var_dump(array_diff($secondArr, $firstArr));
-	echo '<br>';
-
-	// найти все элементы которые присутствую в первом и отсутствуют во втором
-	var_dump(array_diff($firstArr, $secondArr));
-	echo '<br>';
-
-	// найти все элементы значения которых совпадают 
-	var_dump(array_intersect($firstArr, $secondArr));
-	echo '<br>';
-
-	// найти все элементы значения которых отличается
-	var_dump(array_merge(array_diff($firstArr, $secondArr), array_diff($secondArr, $firstArr)));
-	echo '<br>';
-	// or 
-	var_dump(array_diff($firstArr, $secondArr) + array_diff($secondArr, $firstArr));
-	echo '<br>';
-
-	// TODO 3
-	$firstArrx = [
-		'one' => 1,
-		'two' => [
-			'one' => 1,
-			'seven' => 22,
-			'three' => 32,
-		],
-		'three' => [
-			'one' => 1,
-			'two' => 2,
-		],
-		'foure' => 5,
-		'five' => [
-			'three' => 32,
-			'foure' => 5,
-			'five' => 12,
-		],  
-	];
-
-	// получить все вторые элементы вложенных массивов
-	foreach ($firstArrx as $value) { 
-    if (is_array($value)) { 
-        $secondElement = array_slice($value, 1, 1);
-        var_dump($secondElement);
-    }
+		if(is_array($value)) {
+			$iterationResult = searchElementOfArray($value, $element);
+			$result = array_merge($result, $iterationResult);
+		}
 	}
-	echo '<br>';
+	return $result;
+}
 
-	// получить общее количество элементов в массиве
-	var_dump(count($firstArrx, COUNT_RECURSIVE));
-	echo '<br>';
+$message = searchElementOfArray($arr, 0);
 
-	// получить сумму всех значений в массиве
+var_dump($message);
+
+
+echo '<br>';
+// 2. Создать функцию которая считает все буквы b в переданной строке, в случае если передается не строка функция должна возвращать false
+
+$str = 'Bobby 3, Berlin 1, bobr 2, x6';
+$str1 = 'google';
+$num = 2243432423;
+$symbol = 'b';
+
+function countSymbol($str, $symbol) {
+	if(is_string($str)) {
+		$count = substr_count(strtolower($str), strtolower($symbol));
+		$message = match($count) {
+			0 => 'В строке нет буквы b',
+			default => "В строке букв $symbol: $count"
+		};
+		var_dump($message);
+	} else {
+		var_dump(false);
+	}
+}
+countSymbol($str, $symbol);
+countSymbol($str1, $symbol);
+countSymbol($num, $symbol);
+
+
+echo '<br>';
+// 3. Создать функцию которая считает сумму значений всех элементов массива произвольной глубины
+
+$arrayOfNumbers = [1, [1, 22, [33, 2, 3, 4, 5], 90, 80, 70], 15, 16, 17, 18];;
+
+function sumArrayValues($arrayOfNumbers) {
 	$sum = 0;
-	foreach ($firstArrx as $value) {
-		if (is_array($value)) {
-			foreach ($value as $nestedValue) {
-					$sum += $nestedValue;
-			}
+	foreach($arrayOfNumbers as $value) {
+		if(is_array($value)) {
+			$sum += sumArrayValues($value);
 		} else {
 			$sum += $value;
 		}
 	}
+	return $sum;
+}
+$res = sumArrayValues($arrayOfNumbers);
+var_dump($res);
+echo '<br>';
 
-	var_dump($sum);
+/* 4. Создать функцию которая определит сколько квадратов меньшего размера
+можно вписать в квадрат большего размера размер возвращать в float */
+function countSquare($big, $small) {
+	$bigArea = $big * $big;
+	$smallArea = $small * $small;
+	return $bigArea / $smallArea;
+}
+$resSquare = countSquare(20, 8);
+var_dump($resSquare);
+
+
+
 ?>
