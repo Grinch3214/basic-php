@@ -1,27 +1,9 @@
 <?php
 
-declare(strict_types=1);
+$a = 1;
 
-$paymentStatus = 2;
+while ($a <= 15) {
+	echo $a . "<br>";
 
-function getStatus(int|float $pay, bool $showMessage = false) : ?string {
-	$message = match($pay) {
-		1 => 'Success',
-		2 => 'Error',
-		default => 'Unknown'
-	};
-
-	if ($showMessage) {
-		return null;
-	}
-
-	return $message;
+	$a++;
 }
-
-$statusMessage = getStatus($paymentStatus);
-var_dump($statusMessage);
-
-
-echo '<br>';
-
-?>
