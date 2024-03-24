@@ -1,12 +1,8 @@
 <?php
 
-$a = 15;
+$names = ['John', 'Sara', 'Jane', 'Piter'];
 
-for ($i = 1; $i <= $a; $i++) {
-
-	if($i === 6) {
-		// continue;
-		break;
-	}
-	echo $i . "<br>";
+foreach($names as $key => $name) {
+	echo "key: " . $key . "<br>";
+	echo "name: " . $name . "<br>";
 }
