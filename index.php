@@ -1,9 +1,12 @@
 <?php
 
-$a = 1;
+$a = 15;
 
-while ($a <= 15) {
-	echo $a . "<br>";
+for ($i = 1; $i <= $a; $i++) {
 
-	$a++;
+	if($i === 6) {
+		// continue;
+		break;
+	}
+	echo $i . "<br>";
 }
