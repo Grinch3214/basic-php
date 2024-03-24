@@ -1,0 +1,17 @@
+{
+    "name": "a/a",
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "components\\": "src/components"
+        }
+    },
+    "authors": [
+        {
+            "name": "Max",
+            "email": "scorpiomax90@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
