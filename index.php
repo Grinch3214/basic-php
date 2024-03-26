@@ -2,12 +2,21 @@
 
 // admin = 1, mod = 2, any other numbers
 
-$permission = 3;
+function getPermission() {
+	sleep(2);
 
-if ($permission === 1) {
-	?><h1>Hello, Admin!</h1><?php
-} else if ($permission === 2) {
-	?><h1>Hello, mod</h1><?php
-} else {
-	?><h1>Hello, user</h1><?php
+	return 2;
+}
+
+$permission = getPermission();
+
+switch ($permission) {
+	case 1: 
+		echo "<h1>Hello admin</h1>";
+		break;
+	case 2:
+		echo "<h1>Hello mod</h1>";
+		break;
+	default:
+		echo "<h1>Hello user</h1>";
 }
