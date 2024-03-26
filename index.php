@@ -14,7 +14,7 @@ $colors = [
 	"white" => 9
 ];
 
-function colorCode($colors ,$color) {
+function colorCode(array $colors ,string $color): int {
 	return $colors[$color];
 }
 
