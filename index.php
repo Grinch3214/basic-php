@@ -1,10 +1,3 @@
 <?php
-
-$names = ['John', 'Jane', 'Bob'];
-print_r($names);
-
-unset($names[1]);
-
-$names = array_values($names);
-
-print_r($names);
+$number = 45.455;
+echo round($number, 2, PHP_ROUND_HALF_DOWN);
