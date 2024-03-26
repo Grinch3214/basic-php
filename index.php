@@ -27,3 +27,15 @@ function twoFer(string $name = "you"): string {
 
 echo twoFer('John');
 echo "<br>";
+
+function isLeap(int $year): bool {
+	if($year % 4 !== 0) {
+		return false;
+	}
+	if($year % 100 === 0 && $year % 400 !== 0) {
+		return false;
+	}
+	return true;
+}
+
+var_dump(isLeap(2024));
