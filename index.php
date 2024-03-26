@@ -19,3 +19,11 @@ function colorCode(array $colors ,string $color): int {
 }
 
 echo colorCode($colors, 'green');
+echo "<br>";
+
+function twoFer(string $name = "you"): string {
+	return "One for {$name}, one for me.";
+}
+
+echo twoFer('John');
+echo "<br>";
