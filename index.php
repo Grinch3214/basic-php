@@ -1,22 +1,8 @@
-<?php
+<?php 
 
-// admin = 1, mod = 2, any other numbers
-
-function getPermission() {
-	sleep(2);
-
-	return 2;
+function sum(int|float $a, int|float $b) {
+	var_dump($a, $b);
+	return $a + $b;
 }
 
-$permission = getPermission();
-
-switch ($permission) {
-	case 1: 
-		echo "<h1>Hello admin</h1>";
-		break;
-	case 2:
-		echo "<h1>Hello mod</h1>";
-		break;
-	default:
-		echo "<h1>Hello user</h1>";
-}
+echo sum(b:2, a:5);
