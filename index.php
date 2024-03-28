@@ -1,8 +1,11 @@
 <?php 
 
-function sum(int|float $a, int|float $b) {
-	var_dump($a, $b);
-	return $a + $b;
-}
+if(file_exists('example.txt')) {
+	echo filesize('example.txt');
 
-echo sum(b:2, a:5);
+	file_put_contents('example.txt', 'Hello test!');
+
+	clearstatcache();
+
+	echo file_get_contents('example.txt');
+}
