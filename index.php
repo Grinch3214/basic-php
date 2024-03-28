@@ -1,14 +1,9 @@
 <?php 
 
-$users = ['John', 'Jane', 'Max', 'Bob', null];
+$numbers = ['example' => 5, 4, 6, 2, 7];
 
-$users = array_merge(
-	$users,
-	['Sam', 'Greg']
-);
-
-asort($users);
+['example' => $a, 0 => $b] = $numbers;
 
 echo "<pre>";
-print_r($users);
+echo $b;
 echo "<pre>";
