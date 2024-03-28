@@ -9,7 +9,7 @@ $multiply = function($num) use($multiplier) {
 
 // $multiply = fn($nun) => $num * $multiplier; // (arrow func)
 
-function sum($a, $b, $callback) {
+function sum(int|float $a, int|float $b, callable $callback) {
 	return $callback($a + $b);
 };
 
