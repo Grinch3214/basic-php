@@ -1,16 +1,12 @@
 <?php 
 
-$x = 5;
-
-include 'example.php';
-
 function foo() {
-	global $x;
+	static $a = 1;
 
-	echo $x;
-
-	$x++;
+	return $a++;
 }
-foo();
 
-echo $x;
+
+echo foo() . "<br>";
+echo foo() . "<br>";
+echo foo() . "<br>";
