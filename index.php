@@ -1,9 +1,11 @@
 <?php 
 
-$numbers = ['example' => 5, 4, 6, 2, 7];
+if(file_exists('example.txt')) {
+	echo filesize('example.txt');
 
-['example' => $a, 0 => $b] = $numbers;
+	file_put_contents('example.txt', 'Hello test!');
 
-echo "<pre>";
-echo $b;
-echo "<pre>";
+	clearstatcache();
+
+	echo file_get_contents('example.txt');
+}
