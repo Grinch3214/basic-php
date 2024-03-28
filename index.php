@@ -1,14 +1,14 @@
 <?php 
 
-$myCup = 'empty';
-$myFriendsCup = 'empty';
+$users = ['John', 'Jane', 'Max', 'Bob', null];
 
-function fillCup(&$cupParam) {
-	$cupParam = 'filled';
-}
+$users = array_merge(
+	$users,
+	['Sam', 'Greg']
+);
 
-fillCup($myCup);
-fillCup($myFriendsCup);
+asort($users);
 
-echo $myCup . "<br>";
-echo $myFriendsCup;
+echo "<pre>";
+print_r($users);
+echo "<pre>";
