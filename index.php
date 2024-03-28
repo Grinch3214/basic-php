@@ -1,18 +1,14 @@
 <?php 
 
-$multiplier = 2;
+$myCup = 'empty';
+$myFriendsCup = 'empty';
 
-$multiply = function($num) use($multiplier) {
-	$multiplier = 5;
-	return $num * $multiplier;
-};
+function fillCup(&$cupParam) {
+	$cupParam = 'filled';
+}
 
-// $multiply = fn($nun) => $num * $multiplier; // (arrow func)
+fillCup($myCup);
+fillCup($myFriendsCup);
 
-function sum(int|float $a, int|float $b, callable $callback) {
-	return $callback($a + $b);
-};
-
-
-echo sum(5,2, $multiply) . "<br>";
-echo $multiplier;
+echo $myCup . "<br>";
+echo $myFriendsCup;
