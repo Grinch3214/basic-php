@@ -1,12 +1,18 @@
 <?php 
 
-function foo() {
-	static $a = 1;
+$multiplier = 2;
 
-	return $a++;
-}
+$multiply = function($num) use($multiplier) {
+	$multiplier = 5;
+	return $num * $multiplier;
+};
+
+// $multiply = fn($nun) => $num * $multiplier; // (arrow func)
+
+function sum($a, $b, $callback) {
+	return $callback($a + $b);
+};
 
 
-echo foo() . "<br>";
-echo foo() . "<br>";
-echo foo() . "<br>";
+echo sum(5,2, $multiply) . "<br>";
+echo $multiplier;
