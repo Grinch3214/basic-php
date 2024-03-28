@@ -1,3 +1,5 @@
 <?php
 
-return 2;
+$x++;
+
+echo $x;

@@ -1,8 +1,16 @@
 <?php 
 
-function sum(int|float $a, int|float $b) {
-	var_dump($a, $b);
-	return $a + $b;
-}
+$x = 5;
 
-echo sum(b:2, a:5);
+include 'example.php';
+
+function foo() {
+	global $x;
+
+	echo $x;
+
+	$x++;
+}
+foo();
+
+echo $x;
