@@ -1,11 +1,14 @@
 <?php 
 
-if(file_exists('example.txt')) {
-	echo filesize('example.txt');
-
-	file_put_contents('example.txt', 'Hello test!');
-
-	clearstatcache();
-
-	echo file_get_contents('example.txt');
+function slices(string $series, int $size): array {
+	if($size > strlen($series) || $size < 1) {
+		return [];
+	}
+	$results = [];
+	for($i = 0; $i <= strlen($series) - $size; $i++) {
+		$results[] = substr($series, $i, $size);
+	}
+	return $results;
 }
+
+print_r(slices('49142', 3));
