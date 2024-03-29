@@ -1,15 +1,14 @@
 <?php 
 
-function isAmstrongNumber(int $number):bool {
-	$digits = str_split((string) $number);
-
-	$digitCount = count($digits);
-
-	$digits = array_map(function($digit) use($digitCount) {
-		return $digit ** $digitCount;
-	}, $digits);
-
-	return array_sum($digits) === $number;
+function slices(string $series, int $size): array {
+	if($size > strlen($series) || $size < 1) {
+		return [];
+	}
+	$results = [];
+	for($i = 0; $i <= strlen($series) - $size; $i++) {
+		$results[] = substr($series, $i, $size);
+	}
+	return $results;
 }
 
-var_dump(isAmstrongNumber(56));
+print_r(slices('49142', 3));
