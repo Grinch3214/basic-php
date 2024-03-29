@@ -1,11 +1,15 @@
 <?php 
 
-function getNewName():string {
-	$arrayOfLetters = range('A', 'Z');
-	shuffle($arrayOfLetters);
-	$num = mt_rand(100, 999);
+function isAmstrongNumber(int $number):bool {
+	$digits = str_split((string) $number);
 
-	return "{$arrayOfLetters[0]}{$arrayOfLetters[1]}{$num}";
+	$digitCount = count($digits);
+
+	$digits = array_map(function($digit) use($digitCount) {
+		return $digit ** $digitCount;
+	}, $digits);
+
+	return array_sum($digits) === $number;
 }
 
-echo "Robot name: " . getNewName() . "<br>";
+var_dump(isAmstrongNumber(56));
