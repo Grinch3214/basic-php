@@ -1,14 +1,8 @@
 <?php 
 
-function slices(string $series, int $size): array {
-	if($size > strlen($series) || $size < 1) {
-		return [];
-	}
-	$results = [];
-	for($i = 0; $i <= strlen($series) - $size; $i++) {
-		$results[] = substr($series, $i, $size);
-	}
-	return $results;
-}
+require_once 'Account.php';
 
-print_r(slices('49142', 3));
+$myAccount = new Account('Max', 45);
+
+
+var_dump($myAccount);
