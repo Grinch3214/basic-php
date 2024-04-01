@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 class Account {
 
 	public function __construct(

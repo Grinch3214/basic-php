@@ -2,7 +2,9 @@
 
 require_once 'Account.php';
 
-$myAccount = null;
+use App\Account;
+
+$myAccount = new Account('John', 20);
 
 $myAccount?->deposit(50)->deposit(30);
 
