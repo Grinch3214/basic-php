@@ -1,7 +1,14 @@
 <?php 
 
-require_once 'App/Account.php';
-require_once 'App/SocialMedia.php';
+// require_once 'App/Account.php';
+// require_once 'App/SocialMedia.php';
+
+spl_autoload_register(function($class) {
+	$formattedClass = str_replace("\\", "/", $class); 
+	$path = "{$formattedClass}.php";
+
+	require_once $path;
+});
 
 use App\{Account, SocialMedia};
 
